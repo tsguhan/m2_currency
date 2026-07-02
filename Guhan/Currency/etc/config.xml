@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/config.xsd">
+    <default>
+        <form_settings>
+            <general>
+                <api_endpoint>https://api.frankfurter.dev/v2/rates</api_endpoint>
+            </general>
+        </form_settings>
+    </default>
+</config>

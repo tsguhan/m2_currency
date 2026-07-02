@@ -1,0 +1,82 @@
+<?php
+/**
+ * Copyright 2014 Adobe
+ * All Rights Reserved.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundHelper
+
+/**
+ * Product view template
+ *
+ * @var $block Currency
+ */
+
+use Guhan\Currency\Block\Currency;
+$currencyCodes = $block->getAvailableCurrencyCodes();
+?>
+
+<div class="form-container">
+    <h2>Currency Exchange</h2>
+    <form id="mappingForm" action="<?php $block->getUrl('currency/currency/rates') ?>" data-mage-init='{"customFormScript": {}}' method="POST" novalidate>
+
+        <input name="form_key" type="hidden" value="<?= $block->getFormKey() ?>" />
+        <div class="form-group">
+            <label id="primaryLabel" for="primarySelect">Select Currency (Dropdown):</label>
+            <select id="primarySelect" name="primary">
+                <option value="">-- Choose a Currency --</option>
+                <?php
+                foreach ($currencyCodes as $currencyCode) {
+                    echo '<option value="' . $currencyCode . '">' . $currencyCode . '</option>';
+                }
+                ?>
+            </select>
+            <div class="inline-error" id="primaryError">Please pick an option from the dropdown.</div>
+        </div>
+
+        <div class="swap-btn-container">
+            <button type="button" class="swap-btn" id="swapBtn">Swap Select Currency</button>
+        </div>
+
+        <div class="form-group">
+            <label id="secondaryLabel" for="secondarySelect">Select Currency (Multiselect - Hold Ctrl/Cmd):</label>
+            <select id="secondarySelect" name="secondary[]" multiple>
+                <option value="">-- Choose a Currency --</option>
+                <?php
+                foreach ($currencyCodes as $currencyCode) {
+                    echo '<option value="' . $currencyCode . '">' . $currencyCode . '</option>';
+                }
+                ?>
+            </select>
+            <div class="inline-error" id="secondaryError">Please select at least one currency.</div>
+        </div>
+
+        <div class="form-group">
+            <label>Select Time Period (Radio):</label>
+            <div class="radio-group" id="radioGroup">
+                <label class="radio-label">
+                    <input type="radio" style="display:none;" name="period" value="" checked>
+                    <input type="radio" name="period" value="90"> 90D
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="period" value="1"> 1Y
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="period" value="5"> 5Y
+                </label>
+            </div>
+            <div class="inline-error" id="radioError">Please select a time period option.</div>
+        </div>
+
+        <button type="submit">Convert</button>
+
+    </form>
+</div>
+
+<div class="output-container">
+    <h2>CURRENCY COMPLETE INFORMATION</h2>
+    <div id="outputDisplay">
+        <p class="empty-message">Select currency you would like to get the exchange rates</p>
+    </div>
+</div>

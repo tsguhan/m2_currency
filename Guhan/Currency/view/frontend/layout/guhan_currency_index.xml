@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2013 Adobe
+ * All Rights Reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <head>
+            <css src="Guhan_Currency::css/currency-style.css"/>
+        </head>
+        <referenceContainer name="content">
+            <block class="Guhan\Currency\Block\Currency" name="currency_layout_load" template="Guhan_Currency::currency_converter.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

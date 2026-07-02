@@ -1,0 +1,16 @@
+{
+    "name": "guhan/module-currency",
+    "description": "Currency exchange rates and see the chart how it has been changed over the period",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "require": {
+        "php": "~8.1.0||~8.2.0||~8.3.0",
+        "magento/framework": "*"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {
+            "Guhan\\Currency\\": ""
+        }
+    }
+}

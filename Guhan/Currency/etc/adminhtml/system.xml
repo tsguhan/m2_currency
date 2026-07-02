@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <tab id="guhan_currency" translate="label" sortOrder="100">
+        <label>Guhan Currency Section</label>
+    </tab>
+
+    <section id="form_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Configuration</label>
+        <tab>guhan_currency</tab>
+        <resource>Guhan_Currency::config_currency</resource>
+
+        <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Settings</label>
+
+            <field id="api_endpoint" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>External API Endpoint URL</label>
+                <comment>Provide the primary base URL.</comment>
+            </field>
+            <field id="api_endpoint_key" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>External API Endpoint Key</label>
+                <comment>Provide the primary API endpoint key.</comment>
+            </field>
+        </group>
+    </section>
+</config>
